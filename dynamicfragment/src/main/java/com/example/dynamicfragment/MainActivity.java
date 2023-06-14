@@ -24,7 +24,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.btn){
-            replaceFragment(new BlankFragment1());
+            Bundle bundle = new Bundle();
+            bundle.putString("message", "传入fragment的值");
+            Fragment fragment = new BlankFragment1();
+            fragment.setArguments(bundle);
+            replaceFragment(fragment);
         }else {
             replaceFragment(new BlankFragment2());
         }
