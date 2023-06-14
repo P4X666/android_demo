@@ -2,6 +2,7 @@ package com.example.dynamicfragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -18,7 +19,7 @@ public class BlankFragment1 extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
-        String str = bundle.getString("message");
+        String str = bundle != null ? bundle.getString("message") : "";
         Log.e("TAG", "onCreate: " + str );
     }
 
@@ -29,7 +30,7 @@ public class BlankFragment1 extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if(view == null){
             view = inflater.inflate(R.layout.fragment_blank1, container, false);
@@ -38,7 +39,7 @@ public class BlankFragment1 extends Fragment {
         btn.setOnClickListener((View v)->{
 //            iFragmentCallback.sendMessage2Activity("fragment 传递给 activity");
             String string = iFragmentCallback.getMessageFromActivity();
-            Toast.makeText(BlankFragment1.this.getContext(), string, Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), string, Toast.LENGTH_LONG).show();
         });
         return view;
     }
