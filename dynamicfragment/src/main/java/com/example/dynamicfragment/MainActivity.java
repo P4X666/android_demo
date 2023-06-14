@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,8 +27,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.btn){
             Bundle bundle = new Bundle();
             bundle.putString("message", "传入fragment的值");
-            Fragment fragment = new BlankFragment1();
+            BlankFragment1 fragment = new BlankFragment1();
             fragment.setArguments(bundle);
+            fragment.setiFragmentCallback(new IFragmentCallback() {
+                @Override
+                public void sendMessage2Activity(String string) {
+                    Toast.makeText(MainActivity.this, string, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public String getMessageFromActivity() {
+                    return "activity";
+                }
+            });
             replaceFragment(fragment);
         }else {
             replaceFragment(new BlankFragment2());
