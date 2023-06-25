@@ -16,3 +16,4 @@ rootProject.name = "Demo"
 include ':app'
 include ':dynamicfragment'
 include ':fragmentlifescycle'
+include ':myviewpage'
