@@ -3,13 +3,14 @@ package com.example.logindemo.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.logindemo.MainActivity;
+//import com.example.logindemo.MainActivity;
 import com.example.logindemo.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -60,7 +61,8 @@ public class SplashActivity extends AppCompatActivity {
         if ("0".equals(First)) {
             intent.setClass(this, GuideActivity.class);
         } else {
-            intent.setClass(this, MainActivity.class);
+            Log.e("进入登录页", "jump2Activity First :" + First );
+            intent.setClass(this, LoginActivity.class);
         }
         startActivity(intent);
         finish();
