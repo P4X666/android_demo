@@ -13,6 +13,8 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/dynamicfragment" />
             <option value="$PROJECT_DIR$/fragmentlifescycle" />
+            <option value="$PROJECT_DIR$/logindemo" />
+            <option value="$PROJECT_DIR$/myactivity" />
             <option value="$PROJECT_DIR$/myviewpage" />
             <option value="$PROJECT_DIR$/viewpager_fragment" />
           </set>

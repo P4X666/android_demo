@@ -8,11 +8,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo">
-        <!--  默认的 activity -->
+        <!--    被注册的组件    -->
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <!--    默认的Activity    -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <!--    激活默认的Activity的意图        -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
