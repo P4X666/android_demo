@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 文件写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 如果未在 <uses-feature> 声明中将 android:required 设置为 false，则 Android 会假定应用必须在有该硬件的情况下才能运行。因此，系统会阻止某些设备安装应用 -->
+    <!-- uses-feature，只是起到指示性的作用，不是强制的检测 -->
+    <!-- 摄像头 -->
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:name=".app.MyApplication"
@@ -10,6 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo"
         android:usesCleartextTraffic="true">
+        <!-- android:usesCleartextTraffic="true" 降低网络请求协议，以确保http请求，不然会请求失败 -->
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.LoginActivity"
             android:exported="false" />

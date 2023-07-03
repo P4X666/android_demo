@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.logindemo.MainActivity;
 import com.example.logindemo.R;
 import com.example.logindemo.adapter.GuideAdapter;
 
@@ -30,7 +29,6 @@ public class GuideActivity extends AppCompatActivity {
     private       List<ImageView> imageViews;
     private       Button          btn;
     private ImageView[]  dotViews;
-    private GuideAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +41,7 @@ public class GuideActivity extends AppCompatActivity {
         initImgs();
         //初始化底部圆点指示器
         initDots();
-        adapter = new GuideAdapter(imageViews);
+        GuideAdapter adapter = new GuideAdapter(imageViews);
         vp.setAdapter(adapter);
 
         btn.setOnClickListener((View v) -> {
@@ -105,9 +103,7 @@ public class GuideActivity extends AppCompatActivity {
             }
             dotViews[i] = imageView;
             final int finalI = i;
-            dotViews[i].setOnClickListener((View view) -> {
-                vp.setCurrentItem(finalI);
-            });
+            dotViews[i].setOnClickListener((View view) -> vp.setCurrentItem(finalI));
             layout.addView(imageView);
         }
     }
