@@ -24,8 +24,8 @@ import java.util.List;
  */
 public class GuideActivity extends AppCompatActivity {
 
-    private final int[]           imgs = {R.mipmap.y1, R.mipmap.y2, R.mipmap.y3, R.mipmap.y4};
-    private       ViewPager       vp;
+    private final int[]     imps = {R.mipmap.y1, R.mipmap.y2, R.mipmap.y3, R.mipmap.y4};
+    private       ViewPager vp;
     private       List<ImageView> imageViews;
     private       Button          btn;
     private ImageView[]  dotViews;
@@ -38,7 +38,7 @@ public class GuideActivity extends AppCompatActivity {
         btn = findViewById(R.id.guide_btn);
 
         //初始化图片
-        initImgs();
+        initImps();
         //初始化底部圆点指示器
         initDots();
         GuideAdapter adapter = new GuideAdapter(imageViews);
@@ -91,7 +91,7 @@ public class GuideActivity extends AppCompatActivity {
         LinearLayout layout = findViewById(R.id.guide_ll);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(20, 20);
         params.setMargins(10, 0, 10, 0);
-        dotViews = new ImageView[imgs.length];
+        dotViews = new ImageView[imps.length];
         for (int i = 0; i < imageViews.size(); i++) {
             ImageView imageView = new ImageView(this);
             imageView.setLayoutParams(params);
@@ -111,10 +111,10 @@ public class GuideActivity extends AppCompatActivity {
     /**
      * 初始化图片
      */
-    private void initImgs() {
+    private void initImps() {
         ViewPager.LayoutParams params = new ViewPager.LayoutParams();
         imageViews = new ArrayList<>();
-        for (int img : imgs) {
+        for (int img : imps) {
             ImageView imageView = new ImageView(this);
             imageView.setLayoutParams(params);
             imageView.setImageResource(img);
