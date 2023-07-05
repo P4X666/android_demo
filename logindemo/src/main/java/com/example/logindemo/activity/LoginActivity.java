@@ -62,8 +62,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         initView();
     }
     private void initView() {
-        et_username = (EditText) findViewById(R.id.et_username);
-        et_password = (EditText) findViewById(R.id.et_password);
+        et_username = findViewById(R.id.et_username);
+        et_password = findViewById(R.id.et_password);
         View btn_login = findViewById(R.id.btn_login);
         View btn_register = findViewById(R.id.btn_register);
         btn_login.setOnClickListener(this);
@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(id == R.id.btn_register){
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
+            finish();
 //            return;
         }
     }
